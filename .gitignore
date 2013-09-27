@@ -21,4 +21,4 @@ release.properties
 .DS_Store
 
 # my api key
-myapikey.txt
+src/test/resources/mandrill.properties
