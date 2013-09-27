@@ -12,7 +12,7 @@
 	
 	<!-- Application Loggers -->
 	<logger name="com.microtripit">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<!-- Root Logger -->
