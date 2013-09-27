@@ -11,7 +11,7 @@ import java.util.Date;
  * @since Mar 18, 2013
  */
 public class MandrillTemplate {
-	private String name, slug, code, publish_name, publish_code;
+	private String name, slug, code, text, publish_name, publish_code;
 	private Date published_at, created_at, updated_at;
 	
 	/**
@@ -33,6 +33,15 @@ public class MandrillTemplate {
 	public String getCode() {
 		return code;
 	}
+
+    /**
+     * @return The full text of the template, with mc:edit
+     * attributes marking the editable elements - draft version.
+     */
+    public String getText() {
+        return code;
+    }
+
 	/**
 	 * @return The same as the template name &ndash; 
 	 * kept as a separate field for backwards compatibility

@@ -40,6 +40,7 @@ public final class LutungGsonUtils {
 	
 	public static final GsonBuilder createGsonBuilder() {
 		return new GsonBuilder()
+                .disableHtmlEscaping()
 				.setDateFormat(dateFormatStr)
 				.registerTypeAdapter(Date.class, new DateDeserializer())
 				.registerTypeAdapter(Map.class, new MapSerializer());

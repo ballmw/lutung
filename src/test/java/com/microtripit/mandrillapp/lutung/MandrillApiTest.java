@@ -7,10 +7,10 @@ package com.microtripit.mandrillapp.lutung;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Properties;
 
 import junit.framework.Assert;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Assume;
@@ -37,8 +37,8 @@ public final class MandrillApiTest {
 	 */
 	public static final String getMandrillApiKey() {
 		try {
-			final InputStream is = MandrillApiTest.class.getClassLoader()
-					.getResourceAsStream("myapikey.txt");
+            Properties props = new Properties();
+            InputStream is = MandrillApiTest.class.getResourceAsStream("/mandrill.properties");
 			if(is == null) {
 				throw new FileNotFoundException(
 						"Please change " +MandrillApiTest.class.getCanonicalName()
@@ -47,8 +47,9 @@ public final class MandrillApiTest {
 						"a security measure ... I didn't want my own api key in " +
 						"a public git repo ;-)");
 			}
-			final String apikey = IOUtils.toString(is);
-			is.close();
+            props.load(is);
+			final String apikey = props.getProperty("key");
+            is.close();
 			return apikey;
 			
 		} catch(final IOException e) {
